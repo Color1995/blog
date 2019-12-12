@@ -6,7 +6,7 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-    <display-name>Archetype Created Web Application</display-name>
+    <display-name>blog</display-name>
 
     <!--配置springmvc DispatcherServlet-->
     <servlet>
@@ -14,8 +14,12 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <!--配置dispatcher.xml作为mvc的配置文件-->
+            <!-- 配置springMVC需要加载的配置文件
+			spring-mapper.xml,spring-service.xml,spring-web.xml
+			Mybatis - > spring -> springmvc
+		    -->
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath*:xml/spring-xml/dispatcher-servlet.xml</param-value>
+            <param-value>classpath*:xml/spring/spring-*.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
@@ -45,9 +49,10 @@
     </filter-mapping>
 
     <!--把applicationContext.xml加入到配置文件中-->
+    <!--
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:xml/spring-xml/applicationContext.xml</param-value>
+        <param-value>classpath*:xml/spring/applicationContextxml</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -61,9 +66,5 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.form</url-pattern>
     </servlet-mapping>
-
-
-
-
-
+    -->
 </web-app>
